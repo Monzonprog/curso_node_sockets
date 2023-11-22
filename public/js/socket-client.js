@@ -13,10 +13,15 @@ socket.on('connect', () => {
 });
 
 socket.on('disconnect', () => {
-    console.log('Desconectado');
+    //console.log('Desconectado');
 
     lblOffline.style.display = '';
     lblOnline.style.display = 'none';
+});
+
+socket.on('enviar-mensaje', (payload) => {
+    console.log('payload', payload);
+
 });
 
 btnEnviar.addEventListener('click', ()=>{
