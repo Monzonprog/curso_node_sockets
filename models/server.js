@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 
-class Server {
+class Server { 
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
@@ -34,9 +34,13 @@ class Server {
         this.io.on('connection', (socket) => {
             console.log('Cliente conectado', socket.id);
 
-            socket.on('disconnect', ()=>{
-                console.log('Cliente desconectado', socket.id)
-            })
+            socket.on('disconnect', () => {
+                console.log('Cliente desconectado', socket.id);
+            });
+
+            socket.on('enviar-mensaje', (payload) => {
+                console.log(payload);
+            });
         });
     }
 
